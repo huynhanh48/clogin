@@ -13,12 +13,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 var connections = builder.Configuration.GetConnectionString("Login");
-builder.Services.AddDbContext<LoginContext>(options=> 
+
+    var EMailSetting = builder.Configuration.GetConnectionString("MailSetting");
+    //builder.Services.Configure<MailSetting>(EMailSetting);
+    builder.Services.AddDbContext<LoginContext>(options=> 
 options.UseSqlServer(connections)
 );
 // builder.Services.AddIdentity<Appuser,IdentityRole>()
-// .AddEntityFrameworkStores<LoginContext>()
+// .AddEntityFrameworkStores<LoginContext>()   
 // .AddDefaultTokenProviders();
+
+
 builder.Services.AddDefaultIdentity<Appuser>()
 .AddEntityFrameworkStores<LoginContext>()
 .AddDefaultTokenProviders();
@@ -42,10 +47,7 @@ builder.Services.AddDefaultIdentity<Appuser>()
     options.User.AllowedUserNameCharacters = // các ký tự đặt tên user
         "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
     options.User.RequireUniqueEmail = true;  // Email là duy nhất
-
-    // Cấu hình đăng nhập.
-    options.SignIn.RequireConfirmedEmail = false;            // Cấu hình xác thực địa chỉ email (email phải tồn tại)
-    options.SignIn.RequireConfirmedPhoneNumber = false;     // Xác thực số điện thoại
+    options.SignIn.RequireConfirmedEmail = false;
 
 });
 
@@ -70,5 +72,5 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
-//dotnet aspnet-codegenerator razorpage -m Login.Appuser -dc Login.LoginContext --referenceScriptLibraries -udl --outDir Areas/Identity/Pages
+//dotnet aspnet-codegenerator razorpage -m Login.Model.Crud -dc Login.LoginContext --referenceScriptLibraries -udl --outDir Pages/Blog
 

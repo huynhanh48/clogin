@@ -1,10 +1,19 @@
 ﻿@page
 @model IndexModel
+@using Login.Model
 @{
     ViewData["Title"] = "Home page";
+    var x = ViewData["post"] as List<Crud>;
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4;text text-secondary">Tool Game Free</h1>
+</div style="display: flex;">
+<div style="display: flex;">
+    @{
+       foreach(var i in x)
+       {
+        <li style="width: 18%; margin-right: 180px" class="alert alert-primary">@i.Title</li>
+       }
+    }
 </div>

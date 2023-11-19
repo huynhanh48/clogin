@@ -10,6 +10,7 @@ namespace Login
         public LoginContext(DbContextOptions<LoginContext> options) : base(options)
         {
         }
+        public DbSet<Login.Model.Crud> Cruds{get;set;}
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
