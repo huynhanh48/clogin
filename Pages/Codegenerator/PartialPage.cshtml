@@ -1,0 +1,17 @@
+﻿@page
+@model Login.Pages.PartialPageModel
+@{
+    var Getcontext = ViewData["Getcontext"] as List<Login.Model.Crud>;
+}
+@{
+       foreach(var i in Getcontext)
+       {
+            <div>
+            <a href="/Codegenerator/Partial?id=@i.IDCrud" class="btn btn-primary">@i.Title (@i.IDCrud)</a>
+            </div>
+        
+       }
+}
+
+<h1>Test</h1>
+
