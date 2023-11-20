@@ -1,0 +1,10 @@
+C:\Users\anhvo\clogin\obj\Debug\net8.0\Login.csproj.AssemblyReference.cache
+C:\Users\anhvo\clogin\obj\Debug\net8.0\Login.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anhvo\clogin\obj\Debug\net8.0\Login.AssemblyInfoInputs.cache
+C:\Users\anhvo\clogin\obj\Debug\net8.0\Login.AssemblyInfo.cs
+C:\Users\anhvo\clogin\obj\Debug\net8.0\Login.csproj.CoreCompileInputs.cache
+C:\Users\anhvo\clogin\obj\Debug\net8.0\Login.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\anhvo\clogin\obj\Debug\net8.0\Login.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\anhvo\clogin\obj\Debug\net8.0\Login.RazorAssemblyInfo.cache
+C:\Users\anhvo\clogin\obj\Debug\net8.0\Login.RazorAssemblyInfo.cs
+C:\Users\anhvo\clogin\obj\Debug\net8.0\Login.sourcelink.json
