@@ -1,7 +1,15 @@
 @page
 @model Login.Pages.PartialPageModel
 @{
-    var title = Request.Query["id"];
+    var ID = Request.Query["id"];
+    var cruds = ViewData["Getcontext2"] as List<Login.Model.Crud>;
 }
 
-<h1>ID from Query String: @title</h1>
+<h1>ID from Query String: @ID</h1>
+
+@foreach (var crud in cruds)
+{
+    <h2>Title @crud.Title</h2>
+    <h3>Link @crud.Link</h3>
+    <h3>Content @crud.Content</h3>
+}

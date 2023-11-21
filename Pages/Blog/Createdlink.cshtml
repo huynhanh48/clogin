@@ -1,0 +1,24 @@
+﻿@page
+@model Login.Pages_Blog.CreatedlinkModel
+@{
+}
+<head>
+
+</head>
+<Body>
+    <div>
+        <form  method="post">
+            <div class="form-group">
+                <label asp-for="cruds.Title" class="form-group"></label>
+                <input asp-for="cruds.Title" class="form-group"/>
+                <label asp-for="cruds.Link"></label>
+                <input asp-for="cruds.Link" class="form-group"/>
+                <label asp-for="cruds.Content"></label>
+                <input asp-for="cruds.Content" class="form-group"/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">submit</button>
+            </div>
+        </form>
+    </div>
+</Body>

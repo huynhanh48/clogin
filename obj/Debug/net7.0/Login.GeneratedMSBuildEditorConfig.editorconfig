@@ -182,6 +182,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZ1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/C\#/clogin/Pages/Blog/Createdlink.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZ1xDcmVhdGVkbGluay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/C\#/clogin/Pages/Blog/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxvZ1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
