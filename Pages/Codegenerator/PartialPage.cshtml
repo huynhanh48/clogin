@@ -3,15 +3,28 @@
 @{
     var Getcontext = ViewData["Getcontext"] as List<Login.Model.Crud>;
 }
+
+<header></header>
+<style>
+    .From {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: red;
+    }
+
+    #h1 {
+        margin: 5px; /* Điều chỉnh khoảng cách giữa các phần tử */
+        width: 200px; /* Điều chỉnh chiều rộng của mỗi phần tử */
+    }
+</style>
+
 @{
-       foreach(var i in Getcontext)
-       {
-            <div>
-            <a href="/Codegenerator/Partial?id=@i.IDCrud" class="btn btn-primary">@i.Title (@i.IDCrud)</a>
-            </div>
-        
-       }
+    foreach (var i in Getcontext)
+    {
+        <div class="From">
+            <a id="h1" href="/Codegenerator/Partial?id=@i.IDCrud" class="btn btn-primary alert alert-primary">@i.Title (@i.IDCrud)</a>
+        </div>
+    }
 }
 
-<h1>Test</h1>
-
+<h1>Trang Chuyen Huong</h1>

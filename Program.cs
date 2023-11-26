@@ -7,31 +7,45 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Login.Mail;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddOptions();
+var getEmail = builder.Configuration.GetConnectionString("MailSettings");
+builder.Services.ConfigureAll<MailSettings>(options =>
+{
+    options.Mail = "anhvo482004@gmail.com";
+    options.DisplayName = "anhvo482004";
+    options.Password = "Anh0868299464";
+    options.Host = "smtp.gmail.com";
+    options.Port = 587;
+});
+
+builder.Services.AddSingleton<IEmailSender,SendMailService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 var connections = builder.Configuration.GetConnectionString("Login");
-
-    var EMailSetting = builder.Configuration.GetConnectionString("MailSetting");
     //builder.Services.Configure<MailSetting>(EMailSetting);
     builder.Services.AddDbContext<LoginContext>(options=> 
 options.UseSqlServer(connections)
 );
-// builder.Services.AddIdentity<Appuser,IdentityRole>()
-// .AddEntityFrameworkStores<LoginContext>()   
-// .AddDefaultTokenProviders();
 
-
-builder.Services.AddDefaultIdentity<Appuser>()
-.AddEntityFrameworkStores<LoginContext>()
+builder.Services.AddIdentity<Appuser,IdentityRole>()
+.AddEntityFrameworkStores<LoginContext>()   
 .AddDefaultTokenProviders();
+
+
+// builder.Services.AddDefaultIdentity<Appuser>()
+// .AddEntityFrameworkStores<LoginContext>()
+// .AddDefaultTokenProviders();
 
 // Truy cập IdentityOptions
     builder.Services.Configure<IdentityOptions> (options => {
     // Thiết lập về Password    
-    options.Password.RequireDigit = false; // Không bắt phải có số
+     options.Password.RequireDigit = false; // Không bắt phải có số
     options.Password.RequireLowercase = false; // Không bắt phải có chữ thường
     options.Password.RequireNonAlphanumeric = false; // Không bắt ký tự đặc biệt
     options.Password.RequireUppercase = false; // Không bắt buộc chữ in
@@ -47,7 +61,10 @@ builder.Services.AddDefaultIdentity<Appuser>()
     options.User.AllowedUserNameCharacters = // các ký tự đặt tên user
         "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
     options.User.RequireUniqueEmail = true;  // Email là duy nhất
-    options.SignIn.RequireConfirmedEmail = false;
+
+    // Cấu hình đăng nhập.
+    options.SignIn.RequireConfirmedEmail = true;            // Cấu hình xác thực địa chỉ email (email phải tồn tại)
+    options.SignIn.RequireConfirmedPhoneNumber = false;     // Xác thực số điện thoại
 
 });
 
