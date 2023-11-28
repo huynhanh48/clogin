@@ -99,6 +99,7 @@ namespace Login.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnGetCallbackAsync(string returnUrl = null, string remoteError = null)
         {
+
             returnUrl = returnUrl ?? Url.Content("~/");
             if (remoteError != null)
             {
@@ -160,6 +161,7 @@ namespace Login.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
+                    
                     result = await _userManager.AddLoginAsync(user, info);
                     if (result.Succeeded)
                     {

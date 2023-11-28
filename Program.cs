@@ -22,6 +22,14 @@ builder.Services.ConfigureAll<MailSettings>(options =>
     options.Host = "smtp.gmail.com";
     options.Port = 587;
 });
+builder.Services.AddAuthentication()
+.AddGoogle(Options=>
+{
+    Options.ClientId="724322377232-a5jo8bns4pk39mkgp9dqcjh5jauqukts.apps.googleusercontent.com";
+    Options.ClientSecret="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";
+    Options.CallbackPath="/dang-nhap-tu-google";
+
+});
 
 builder.Services.AddSingleton<IEmailSender,SendMailService>();
 

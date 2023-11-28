@@ -3,9 +3,14 @@
 
 @{
     ViewData["Title"] = "Đăng Nhập";
+    var thongbao =this.TempData["ErrorMessage"];
+    //this.TempData.ContainsKey("ErrorMessage")
 }
 
 <h1>@ViewData["Title"]</h1>
+@if(this.TempData.ContainsKey("ErrorMessage")){
+    <partial name="/Areas/Identity/Pages/Account/_StatusMessage.cshtml" model="thongbao"/>
+}
 <div class="row">
     <div class="col-md-4">
         <section>
